@@ -1,0 +1,209 @@
+<!doctype html>
+
+<head>
+    <title>Graveyard Escape ~ js1024</title>
+    <meta name="author" content="author">
+    <meta name="description" content="description">
+    <meta name="title" content="title">
+    <meta charset=utf-8>
+</head>
+
+<body id=b>
+    <canvas id=a></canvas>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #a {
+            position: relative;
+            display: block;
+        }
+
+        .play {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%)translateY(-50%);
+            font-size: 30px;
+            font-family: arial, sans-serif;
+            background: #f3f4f5;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* for mobile */
+        :root {
+            touch-action: pan-x pan-y;
+            height: 100%;
+        }
+    </style>
+
+    <script>
+        // Entry configuration
+        // ===================
+
+        var title = "Graveyard Escape";
+
+        // Shim setup and polyfills (do not edit)
+        // ======================================
+
+        a = document.getElementById("a");
+        a.width = innerWidth;
+        a.height = innerHeight;
+
+        b = document.getElementById("b");
+
+        c = a.getContext("2d");
+        d = document;
+
+        var M = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent); // detects if the user is on mobile
+
+        if (M) {
+            a.oncontextmenu = function (e) {
+                e.preventDefault();
+            } // prevents context menu on mobile
+        }
+
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+        a.requestPointerLock = a.requestPointerLock || a.mozRequestPointerLock || a.webkitRequestPointerLock;
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+        if (typeof OscillatorNode !== 'undefined' && OscillatorNode.prototype) {
+            OscillatorNode.prototype.start = OscillatorNode.prototype.start || OscillatorNode.prototype.noteOn;
+            OscillatorNode.prototype.stop = OscillatorNode.prototype.stop || OscillatorNode.prototype.noteOff;
+        }
+
+        // Add a start button if sound is present in the code
+        onload = () => {
+            var entry_code = entry.innerText;
+            var has_sound = false;
+            if (entry_code.includes('eval')) {
+                try {
+                    parent.eval(entry_code.replace(/eval\(/g, 'throw(').replace(/eval\`/g, 'throw`'));
+                }
+                catch (e) {
+                    entry_code = e;
+                }
+            }
+
+            try {
+                if (entry_code.includes("AudioContext") || entry_code.includes("Oscillator") || entry_code.includes("speak") || entry_code.includes("play") || entry_code.includes("autoplay")) {
+                    b.insertAdjacentHTML("beforeEnd", "<button class='play' onclick='start_demo(this)'>PLAY</button>");
+                } else {
+                    parent.eval(entry.innerText);
+                }
+            } catch (e) {
+                // I have no idea what this does but I think it will make demos that contain eval naturally (no compressor used) work
+                entry_code = entry.innerText;
+                parent.eval(entry_code);
+            }
+        };
+
+        // Makes the "window." be optional in the demo code
+        function start_demo(button) {
+            console.log(entry.innerText);
+            parent.eval(entry.innerText);
+            button.remove();
+        }
+
+        console.log(
+            a, // canvas
+            b, // body
+            c, // 2D canvas context
+            d // document
+        );
+    </script>
+
+    <script type="text" id="entry">
+                for(_='F(`t=_x.fon_f^^s+k,QQ`b+sP.yOO>HNN-80?+l,O+=4[i],`:i++;W-vct.xp+v>&<+v&M()<.0i=0;i<=inner0,O<H-40&^l+kt.which<=".length;),o=[],r=[],	x.fillW/2H/2",),.splice(i,1)Style=.push({x:~~(()*M()y:0}d=addEventListener,kmonospacex=c,c=a,#f60fs2em fl3em B🧠c.width=WWidth,c.heigh_HHeight,p={x:,y:H-50}	b Sn Lu Bs=g=_l=h=v=3F=Text.bind(xM=Math.random,d("keydown_>g=38?-6:40?6:gd("clicki=>t>1|t?(s=o=r=0	=,l=_1):_1funion f(){if("#030Re(W,H,Qt)if(t>1)QP,-4-10`n-4+20`u+(h=s>h?s:h-5+50;else{for(l=1+~~(s/10,`"🧟,pOow=o"🪦w,wOwwN?(o,s++):wwww_2for(rA=rB,A,AOAAN?r:AAAA(r,s+=5)+=.5*g,=<0?0:>?:,15+.003*l&&o08&&r,P+n130)}else ,Q`B,-6+50);requestAnimationFrame(f)}()';G=/[-N-Q^-`]/.exec(_);)with(_.split(G))_=join(shift());eval(_)
+
+    </script>
+    <script type="text" id="entry-original">
+                (d = addEventListener),
+  (k = "monospace"),
+  (x = c),
+  (c = a),
+  (ct = "#f60"),
+  (fs = "2em "),
+  (fl = "3em "),
+  (B = "🧠"),
+  (c.width = W = innerWidth),
+  (c.height = H = innerHeight),
+  (p = { x: W / 2, y: H - 50 }),
+  (o = []),
+  (r = []),
+  (b = " S"),
+  (n = " L"),
+  (u = " B"),
+  (s = g = t = l = h = 0),
+  (v = 30),
+  (F = x.fillText.bind(x)),
+  (M = Math.random),
+  d("keydown", (t) => (g = t.which < 38 ? -6 : t.which < 40 ? 6 : g)),
+  d("click", (i) =>
+    (t > 1) | t
+      ? ((s = o = r = 0), (o = []), (r = []), (p.x = W / 2), (l = t = 1))
+      : (t = 1)
+  ),
+  (function f() {
+    if (
+      ((x.fillStyle = "#030"),
+      x.fillRect(0, 0, W, H),
+      (x.fillStyle = ct),
+      (x.font = fs + k),
+      t)
+    )
+      if (t > 1)
+        (x.font = fs + k),
+          (x.font = fs + k),
+          F(b + s, W / 2 - 40, H / 2 - 10),
+          F(n + l, W / 2 - 40, H / 2 + 20),
+          F(u + (h = s > h ? s : h), W / 2 - 50, H / 2 + 50),
+          (x.font = fl + k);
+      else {
+        for (
+          l = 1 + ~~(s / 10), x.font = fl + k, F("🧟", p.x, p.y), i = 0;
+          i < o.length;
+
+        )
+          (w = o[i]),
+            F("🪦", w.x, w.y),
+            (w.y += 4 + l),
+            w.y > H
+              ? (o.splice(i, 1), s++)
+              : (w.x < p.x + v) &
+                (w.x + v > p.x) &
+                (w.y < H - 40) &
+                (w.y > H - 80)
+              ? (t = 2)
+              : i++;
+        for (i = 0; i < r.length; )
+          (z = r[i]),
+            F(B, z.x, z.y),
+            (z.y += 4 + l),
+            z.y > H
+              ? r.splice(i, 1)
+              : (z.x < p.x + v) &
+                (z.x + v > p.x) &
+                (z.y < H - 40) &
+                (z.y > H - 80)
+              ? (r.splice(i, 1), (s += 5))
+              : i++;
+        (p.x += 0.5 * g),
+          (p.x = p.x < 0 ? 0 : p.x > W - v ? W - v : p.x),
+          M() < 0.015 + 0.003 * l && o.push({ x: ~~((W - v) * M()), y: 0 }),
+          M() < 0.008 && r.push({ x: ~~((W - v) * M()), y: 0 }),
+          (x.fillStyle = ct),
+          (x.font = fs + k),
+          F(b + s + n + l, 10, 30);
+      }
+    else (x.font = fl + k), (x.font = fs + k), F(B, W / 2 - 60, H / 2 + 50);
+    requestAnimationFrame(f);
+  })();
+
+    </script>
+</body>
